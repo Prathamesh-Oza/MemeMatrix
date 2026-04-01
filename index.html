@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Meme Factory</title>
+    <meta name="description" content="Browse famous meme templates powered by the Meow Meow API." />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <header class="header">
+        <h1>🏭 The Meme Factory</h1>
+        <p class="subtitle">Browse famous meme templates — powered by the Imgflip API</p>
+        <div class="search-bar">
+            <input type="search" id="search-input" placeholder="Search memes…" autocomplete="off" />
+        </div>
+    </header>
+
+    <main class="container">
+
+        <div id="loading" class="loading-state">
+            <div class="spinner"></div>
+            <p>Loading memes…</p>
+        </div>
+
+        <p id="error-msg" class="error-msg" hidden>
+            Failed to load memes. Please check your connection and refresh.
+        </p>
+
+        <p id="result-count" class="result-count" hidden></p>
+
+        <div id="meme-grid" class="meme-grid" hidden></div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
