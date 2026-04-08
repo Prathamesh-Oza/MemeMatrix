@@ -1,44 +1,86 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="dark">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>The Meme Factory</title>
-    <meta name="description" content="Browse famous meme templates powered by the Meow Meow API." />
-    <link rel="stylesheet" href="style.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
-        rel="stylesheet" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>The Meme Factory</title>
+  <meta name="description" content="Browse, search, filter and sort famous meme templates powered by the MeowMeow API." />
+  <link rel="stylesheet" href="style.css" />
+  
+  
+  
 </head>
 
 <body>
 
-    <header class="header">
-        <h1>🏭 The Meme Factory</h1>
-        <p class="subtitle">Browse famous meme templates — powered by the Imgflip API</p>
-        <div class="search-bar">
-            <input type="search" id="search-input" placeholder="Search memes…" autocomplete="off" />
-        </div>
-    </header>
+  <header class="header">
+    <div class="header-top">
+      <div class="brand">
+        <h1>The Meme Factory</h1>
+      </div>
+      <button id="theme-toggle" class="theme-btn" aria-label="Toggle theme" title="Toggle dark/light mode">
+        <span class="theme-icon">🌙</span>
+        <span class="theme-label">Dark</span>
+      </button>
+    </div>
+    <p class="subtitle">Browse famous meme templates — powered by the MeowMeow API</p>
 
-    <main class="container">
+    <div class="controls-bar">
+      <div class="search-wrap">
+        <span class="search-icon">🔍</span>
+        <input type="search" id="search-input" placeholder="Search memes…" autocomplete="off" />
+      </div>
 
-        <div id="loading" class="loading-state">
-            <div class="spinner"></div>
-            <p>Loading memes…</p>
-        </div>
+      <div class="control-group">
+        <label for="filter-select" class="control-label">Filter</label>
+        <select id="filter-select" class="control-select">
+          <option value="all">All memes</option>
+          <option value="simple">Simple (1–2 boxes)</option>
+          <option value="medium">Medium (3–4 boxes)</option>
+          <option value="complex">Complex (5+ boxes)</option>
+        </select>
+      </div>
 
-        <p id="error-msg" class="error-msg" hidden>
-            Failed to load memes. Please check your connection and refresh.
-        </p>
+      <div class="control-group">
+        <label for="sort-select" class="control-label">Sort</label>
+        <select id="sort-select" class="control-select">
+          <option value="default">Default</option>
+          <option value="az">A → Z</option>
+          <option value="za">Z → A</option>
+          <option value="boxes-asc">Fewest boxes</option>
+          <option value="boxes-desc">Most boxes</option>
+        </select>
+      </div>
+    </div>
+  </header>
 
-        <p id="result-count" class="result-count" hidden></p>
+  <main class="container">
 
-        <div id="meme-grid" class="meme-grid" hidden></div>
+    <div id="loading" class="loading-state">
+      <div class="spinner"></div>
+      <p>Loading memes…</p>
+    </div>
 
-    </main>
+    <p id="error-msg" class="error-msg" hidden>
+      Failed to load memes. Please check your connection and refresh.
+    </p>
+
+    <div class="meta-bar" id="meta-bar" hidden>
+      <p id="result-count" class="result-count"></p>
+      <p id="liked-count" class="liked-count">❤️ <span id="liked-num">0</span> liked</p>
+    </div>
+
+    <div id="meme-grid" class="meme-grid" hidden></div>
+
+    <p id="no-results" class="no-results" hidden>No memes match your search. Try something else!</p>
+
+  </main>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
 
     <script src="script.js"></script>
 </body>
